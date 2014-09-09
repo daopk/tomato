@@ -1,0 +1,21 @@
+{
+    "deverloper":{
+        "debug" : true
+    },
+    "base":{
+        "url" : "http://yourdomain.com",
+        "path" : "/sub/", 
+        "title" : "My title",
+        "template" : "default",
+        "router":{
+            "defaut_controller" : "home",
+            "defaut_action" : "index"
+        }
+    },
+    "database":{
+        "host" : "localhost",
+        "name" : "demo",
+        "username" : "root",
+        "password" : "12345678"
+    }
+}
