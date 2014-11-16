@@ -19,8 +19,6 @@ class JsonConfig
 
 	public static function write($array, $pathfile)
 	{
-	//	$jsonfile = fopen($pathfile, 'w');
-	//	fclose($jsonfile);
 		file_put_contents($pathfile, json_encode($array),LOCK_EX);
 	}
 

@@ -1,20 +1,12 @@
 <?php
 
-// Template::AddStyle(array(
-//     "foo" => array("a", "b", "c"),
-//     "boo" => array("a", "b", "c"),
-//     "bar" => "d",
-// )); 
-
 Template::AddStyle(array(
-	"wishes" => array("font-awesome.min.css", "wishes.css")
-    //"boo" => array("a", "b", "c"),
-));
+	"bootstrap" => array("bootstrap.min.css", "bootstrap-theme.min.css"),
+	"style" => array("style.css"),
+	));
 
 Template::AddScript(array(
-	"jquery" => array("jquery-1.11.1.min.js"),
-	"wishes" => array("animation.js", "wishes.js")
-     //"boo" => array("a", "b", "c"),
-));
-
+	"jquery" => array("jquery-1.11.1.min.js"), 
+	"bootstrap" => array("bootstrap.min.js"),
+	));
 ?>

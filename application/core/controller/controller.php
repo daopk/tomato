@@ -5,29 +5,26 @@
 */
 class Controller
 {
-	function __construct()
-	{
-		
-	}
+	public $template;
 
+	function __construct()
+	{	
+	}
 
 	public function View($viewName, $model = null)
 	{
-		if($model)
-            View::$model = $model;
-
-		$view = new View($this, $viewName);        
-
-        return $view;
+		$view = new View($this->template);
+		$view->load($this, $viewName, $model);
 	}
 
 	public function DirectView($controllerName, $viewName, $model = null)
 	{
-		if($model)
-            View::$model = $model;
+		$view = new View($this->template);
+		$view->load($controllerName, $viewName, $model);
+	}
 
-		$view = new View($controllerName, $viewName);       
-
-        return $view;
+	public function PartialView($viewName, $model = null)
+	{
+		$view = new PartialView($viewName, $model);
 	}
 }

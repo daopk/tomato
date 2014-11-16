@@ -1,12 +1,8 @@
 <?php
 
-/**
-* 
-*/
 class Template
 {
 	public static $view;
-	public static $name;
 	public static $styles = array();
 	public static $scripts = array();
 
@@ -23,18 +19,19 @@ class Template
 	{
 		if($style_name == '')
 		{
-			foreach (self::$styles as $arrayStyle) {
-				if(is_array($arrayStyle))
-					foreach ($arrayStyle as $style) {
+			foreach (self::$styles as $arrayStyle){
+				if(is_array($arrayStyle)){
+					foreach ($arrayStyle as $style){
 						self::EchoStyle($style);
 					}
+				}
 				else self::EchoStyle($style);
 			}
 		}
 		else {
 			$styles = self::$styles[$style_name];	
-				foreach ($styles as $style) {
-						self::EchoStyle($style);
+			foreach ($styles as $style) {
+				self::EchoStyle($style);
 			}	
 		}		
 	}
@@ -47,7 +44,8 @@ class Template
 
 	public static function EchoStyle($name)
 	{
-		echo'<link rel="stylesheet" type="text/css" href="'.BASE_URL.'asset/css/'.$name.'" media="screen">
+		if(file_exists(PUBLIC_DIR.DS.'asset'.DS.'css'.DS.$name))
+			echo'<link rel="stylesheet" type="text/css" href="'.BASE_URL.'asset/css/'.$name.'" media="screen">
 		';
 	}
 
@@ -60,19 +58,20 @@ class Template
 		if($script_name == '')
 		{
 			foreach (self::$scripts as $arrayScript) {
-				if(is_array($arrayScript))
+				if(is_array($arrayScript)){
 					foreach ($arrayScript as $script) {
 						self::EchoScript($script);
 					}
+				}
 				else self::EchoScript($script);
 			}
 		}
 		else {
 			$scripts = self::$scripts[$script_name];
-				foreach ($scripts as $script) {
+			foreach ($scripts as $script) {
 				self::EchoScript($script);
 			}	
-		}		
+		}
 	}
 
 	public static function AddScript($scripts)
@@ -83,7 +82,8 @@ class Template
 
 	public static function EchoScript($name)
 	{
-		echo '<script type="text/javascript" src="'.BASE_URL.'asset/js/'.$name.'"></script>
+		if(file_exists(PUBLIC_DIR.DS.'asset'.DS.'js'.DS.$name))
+			echo '<script type="text/javascript" src="'.BASE_URL.'asset/js/'.$name.'"></script>
 		';
 	}
 

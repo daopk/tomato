@@ -6,9 +6,19 @@
 class View
 {
 	public $pathView;
+	public $template;
+
+	public static $title;
 	public static $model;
 	
-	function __construct($controller, $viewName)
+	function __construct($template)
+	{
+		if(isset($template) && realpath(TEMPLATE_DIR.DS.$template))
+			$this->template = TEMPLATE_DIR.DS.$template;
+		else $this->template = TEMPLATE_DIR.DS.JsonConfig::$_config['base']['template'];
+	}
+
+	public function load($controller, $viewName, $model)
 	{
 		if(is_string($controller)) 
 			$this->pathView = VIEW_DIR.DS.strtolower($controller).DS.$viewName.'.php';	
@@ -20,7 +30,9 @@ class View
 				$this->pathView = VIEW_DIR.DS.strtolower(get_class($controller)).DS.$viewName.'.php';
 		}
 
-		Template::$name = JsonConfig::$_config['base']['template'];
+		self::$model = $model;
+
+		require_once($this->template.DS.'config'.DS.'BundleConfig.php');
 
 		$this->Render();
 	}
@@ -30,7 +42,7 @@ class View
 	{
 		Template::$view = $this;
 
-		require_once(TEMPLATE_DIR.DS.Template::$name.DS.'index.php');
+		require_once($this->template.DS.'index.php');
 	}
 
 	public static function Title()

@@ -3,18 +3,18 @@
         "debug" : true
     },
     "base":{
-        "url" : "http://yourdomain.com",
-        "path" : "/sub/", 
-        "title" : "My title",
+        "url" : "http://localhost",
+        "path" : "/tomato/",
+        "title" : "Tomato",
         "template" : "default",
         "router":{
             "defaut_controller" : "home",
             "defaut_action" : "index"
         }
     },
-    "database":{
+    "database" :{
         "host" : "localhost",
-        "name" : "demo",
+        "dbname" : "tomato",
         "username" : "root",
         "password" : "12345678"
     }

@@ -1,62 +1,13 @@
 <?php
 
-/**
-* 
-*/
-class Database
-{
-    private static $_link;
-    private static $rows = array();
-	
-	function __construct($config)
-	{
-		if(!self::$_link)
-			self::Connect();
-	}
+require_once 'NotORM.php';
 
-	private static function Connect()
-	{
-		$_configuration = Jsonconfig::$_config['database'];
-	
-		self::$_link = new mysqli($_configuration['host'], $_configuration['username'], 
-		 	$_configuration['password'], $_configuration['name']);
-		
-		mysqli_query(self::$_link, "SET NAMES utf8");
-		
-         if (!self::$_link)
-             throw new DatabaseException("Failed to connect to MySQL Database");
-	}
+extract(JsonConfig::$_config['database']);
 
-	public static function Query($query)
-	{
-		self::$rows = array();
+$options = array(
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+); 
 
-		$result = mysqli_query(self::$_link, $query); 
+$connection = new PDO('mysql:host='.$host.';dbname='.$dbname, $username, $password, $options);
 
-		if(isset($result->num_rows))
-		{
-			$num_rows = $result->num_rows;
- 			while ($row =  mysqli_fetch_assoc($result)) {
- 				self::$rows[] = $row;
-    		}
-				
-			return self::$rows;
-		}
-	}
-
-	public static function MultiQuery($query)
-	{
-		echo($query);
-		mysqli_multi_query(self::$_link, $query);
-	}
-
-	public static function Rows()
-	{
-		return self::$rows;
-	}
-
-	public static function last_insert_id()
-	{
-		return mysqli_insert_id(self::$_link);
-	}
-}
+$db = new NotORM($connection);
