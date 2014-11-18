@@ -2,5 +2,5 @@ Tomato
 ======
 A simple php mvc framework
 
-** Docs
-http://daofresh.github.io/tomato/
+## Docs
+https://github.com/daofresh/tomato/wiki
