@@ -1,9 +1,9 @@
 <div class="span12">
 	<div class="hero-unit center">
-		<h1>Không tìm thấy trang này!</h1>
+		<h1>This page not found!</h1>
 		<br />
-		<p>Trang bạn yêu cầu không tồn tại, hoặc liên hệ với quản trị trang web của bạn. Sử dụng nút <strong>Back</strong> của trình duyệt để điều hướng đến trang web đã dẫn bạn tới đây!</p>
-		<p><b>Hoặc bạn có thể ấn vào nút nhỏ nhắn phía dưới này:</b></p>
-		<a href="<?= BASE_URL ?>"><button class="btn btn-large btn-info"><i class="icon-home icon-white"></i>Trở về trang chủ</button></a>
+		<p>The page you requested does not exist. Please contact your site administrator! You can use the button <strong>Back</strong> of browser to navigate to the site led you to this!</p>
+		<p><b>Or you can click the little button below:</b></p>
+		<a href="<?= BASE_URL ?>"><button class="btn btn-large btn-info"><i class="icon-home icon-white"></i>Back to index</button></a>
 	</div>
 </div>
