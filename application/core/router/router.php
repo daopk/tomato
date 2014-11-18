@@ -44,7 +44,7 @@ class Router
 //		$array = explode('/', filter_var($path=rtrim($path,'/'), FILTER_SANITIZE_URL));
 		$array = explode('/', filter_var($path=rtrim($path,'/')));
 
-		if($array[0] != ''){
+		if($array[0] != '' && $array[0] != 'index.htm'){
 			if(file_exists(APP_DIR.DS.'controllers'.DS.$array[0].'.php')){
 				$routerconfig->controller = $array[0];
 				unset($array[0]);
