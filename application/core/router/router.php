@@ -18,8 +18,7 @@ class Router
 		if(isset(self::$_instance))
 		{
 			$instance = (array)(self::$_instance);
-			if(file_exists(APP_DIR.DS.'controllers'.DS.$instance['controller'].'.php')) // đã kiểm tra ở Init
-			require_once(APP_DIR.DS.'controllers'.DS.$instance['controller'].'.php');
+			require_once($instance['directory'].DS.$instance['controller'].'.php');
 			$c = new $instance['controller']();
 			if(method_exists($c, self::$_instance->action)){
 				call_user_func_array(array($c, self::$_instance->action), self::$_instance->params);
@@ -39,13 +38,27 @@ class Router
 	public static function Init($path)
 	{
 		$routerconfig = new RouterConfig();
-		$routerconfig->controller = JsonConfig::$_config['base']['router']['defaut_controller'];
-
-//		$array = explode('/', filter_var($path=rtrim($path,'/'), FILTER_SANITIZE_URL));
 		$array = explode('/', filter_var($path=rtrim($path,'/')));
+		foreach ($array as $key => $value) {
+			if(is_dir($routerconfig->directory.DS.$value)){
+				$routerconfig->directory .= DS.$value;
+				unset($array[$key]);
+			}
+			else break;	
+		}
 
-		if($array[0] != '' && $array[0] != 'index.htm'){
-			if(file_exists(APP_DIR.DS.'controllers'.DS.$array[0].'.php')){
+		if(!file_exists($routerconfig->directory.DS.$routerconfig->controller.'.php')
+			&& (isset($array[0]) && !file_exists($routerconfig->directory.DS.$array[0].'.php')))
+		{
+			$temp = explode(DS, $routerconfig->directory);
+			$routerconfig->controller = end($temp);
+			$routerconfig->directory = substr($routerconfig->directory, 0, strrpos($routerconfig->directory, DS));
+		}
+
+		$array = array_values($array);
+
+		if(isset($array[0]) && $array[0] != ''){
+			if(file_exists($routerconfig->directory.DS.$array[0].'.php')){
 				$routerconfig->controller = $array[0];
 				unset($array[0]);
 				if(isset($array[1]))
@@ -56,17 +69,14 @@ class Router
 			} else{
 				self::Error('404');
 			}
-		}		
+		}
 
-		if(!isset($routerconfig->action))
-			$routerconfig->action = JsonConfig::$_config['base']['router']['defaut_action'];
 
 		$params = $_REQUEST;
 		unset($params['url']);
 		unset($params['PHPSESSID']);
 
 		$routerconfig->params = $array ? array_values($array) + $params : $params;
-
 		return $routerconfig;
 	}
 

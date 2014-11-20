@@ -2,6 +2,7 @@
 
 // Define Directiories Name
 define('APP_DIR', dirname(__DIR__));
+define('CTR_DIR', APP_DIR.DS.'controllers');
 define('CORE_DIR', APP_DIR.DS.'core');
 
 define('VIEW_DIR', APP_DIR.DS.'views');
