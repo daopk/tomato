@@ -17,4 +17,10 @@ class Home extends Controller
 	public function add($a = 0, $b = 0){
 		echo $a + $b;
 	}
+
+	public function mypet()
+	{
+		$mypet = new Pet('Kiwi');
+		$mypet->showName();
+	}
 }
