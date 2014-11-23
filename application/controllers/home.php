@@ -8,19 +8,9 @@ class Home extends Controller
 		
 		$this->view('index', $model); 
 	}
-
-	public function hello($name = 'Tomato')
+	public function demo($template = 'default')
 	{
-		echo 'Hello '.$name;
-	}
-
-	public function add($a = 0, $b = 0){
-		echo $a + $b;
-	}
-
-	public function mypet()
-	{
-		$mypet = new Pet('Kiwi');
-		$mypet->showName();
+		$this->template = $template;
+		$this->view('demo', $template);
 	}
 }
