@@ -6,7 +6,7 @@
 **/
 class _List extends TM_Controller
 {
-	public function index()
+	public function indexAction()
 	{
 		echo "This is list controller";
 	}

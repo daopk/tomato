@@ -31,7 +31,7 @@ class Router
 			}
 			else{
 				self::$_instance->action = JsonConfig::$_config['base']['router']['defaut_action'];
-				call_user_func_array(array($c, self::$_instance->action), self::$_instance->params);
+				call_user_func_array(array($c, self::$_instance->action.'Action'), self::$_instance->params);
 			}
 		}
 		else{

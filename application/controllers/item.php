@@ -5,7 +5,7 @@
 */
 class Item extends TM_Controller
 {
-	public function index(){
+	public function indexAction(){
 		global $db;
 		
 		$items = $db->item()->select('name');

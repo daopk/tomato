@@ -2,13 +2,13 @@
 
 class Home extends TM_Controller
 {
-	public function index()
+	public function indexAction()
 	{
 		$model = 'I am model';
 		
 		$this->view('index', $model); 
 	}
-	public function demo($template = 'default')
+	public function demoAction($template = 'default')
 	{
 		$this->template = $template;
 		$this->view('demo', $template);
