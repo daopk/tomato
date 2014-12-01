@@ -19,7 +19,13 @@ class Router
 		{
 			$instance = (array)(self::$_instance);
 			require_once($instance['directory'].DS.$instance['controller'].'.php');
-			$c = new $instance['controller']();
+			if(class_exists("_".$instance['controller']))
+			{
+				$class_name = "_".$instance['controller'];
+				$c = new $class_name;
+			}
+			else 
+				$c = new $instance['controller'];
 			if(method_exists($c, self::$_instance->action)){
 				call_user_func_array(array($c, self::$_instance->action), self::$_instance->params);
 			}
