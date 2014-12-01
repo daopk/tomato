@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Error extends Controller
+class Error extends TM_Controller
 {
 	public function error404()
 	{

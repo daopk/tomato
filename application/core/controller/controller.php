@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Controller
+class TM_Controller
 {
 	public $template;
 

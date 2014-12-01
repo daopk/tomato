@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Item extends Controller
+class Item extends TM_Controller
 {
 	public function index(){
 		global $db;
