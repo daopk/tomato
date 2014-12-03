@@ -1,6 +1,7 @@
-<div class="span12">
+<div class="span12 wrapper">
 	<div class="hero-unit center">
 		<h1>This page not found!</h1>
+		<p style="color: red"><?= View::$model ?></p>
 		<br />
 		<p>The page you requested does not exist. Please contact your site administrator! You can use the button <strong>Back</strong> of browser to navigate to the site led you to this!</p>
 		<p><b>Or you can click the little button below:</b></p>

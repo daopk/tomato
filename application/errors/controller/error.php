@@ -5,8 +5,8 @@
 */
 class Error extends TM_Controller
 {
-	public function error404()
+	public function error404($message = '')
 	{
-		$this->view("404");
+		$this->view("404", $message);
 	}
 }
