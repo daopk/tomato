@@ -63,7 +63,7 @@ class Router
 
 		$array = array_values($array);
 
-		if($array[0] != '' && $array[0] != 'index.htm'){
+		if(isset($array[0]) && $array[0] != '' && $array[0] != 'index.htm'){
 			if(file_exists($routerconfig->directory.DS.$array[0].'.php')){
 				$routerconfig->controller = $array[0];
 				unset($array[0]);
