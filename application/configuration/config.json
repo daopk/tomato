@@ -3,8 +3,7 @@
         "debug" : true
     },
     "base":{
-        "url" : "http://localhost",
-        "path" : "/tomato/",
+        "base_url" : "http://localhost/tomato/",
         "title" : "Tomato",
         "template" : "default",
         "router":{
