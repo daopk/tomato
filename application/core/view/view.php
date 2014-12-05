@@ -32,7 +32,9 @@ class View
 
 		self::$model = $model;
 
-		require_once($this->template.DS.'config'.DS.'BundleConfig.php');
+		if (isset($this->template.DS.'config.php')) {
+			require_once($this->template.DS.'config.php');
+		}
 
 		$this->Render();
 	}
