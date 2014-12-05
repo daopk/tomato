@@ -32,7 +32,7 @@ class View
 
 		self::$model = $model;
 
-		if (isset($this->template.DS.'config.php')) {
+		if (file_exists($this->template.DS.'config.php')) {
 			require_once($this->template.DS.'config.php');
 		}
 
