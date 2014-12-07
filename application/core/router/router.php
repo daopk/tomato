@@ -21,9 +21,9 @@ class Router
 		{
 			$instance = (array)(self::$_instance);
 			
-			if(file_exists($instance['directory'].DS.$instance['controller'].'.php'))
+			if(file_exists(CTR_DIR.$instance['directory'].DS.$instance['controller'].'.php'))
 			{
-				require_once($instance['directory'].DS.$instance['controller'].'.php');
+				require_once(CTR_DIR.$instance['directory'].DS.$instance['controller'].'.php');
 				if(class_exists("_".$instance['controller']))
 				{
 					$class_name = "_".$instance['controller'];
@@ -60,7 +60,7 @@ class Router
 		$array = UrlHelper::ExtractURL();
 		$last_dir = null;
 		foreach ($array as $key => $value) {
-			if(is_dir($routerconfig->directory.DS.$value)){
+			if(is_dir(CTR_DIR.$routerconfig->directory.DS.$value)){
 				$last_dir = $value;
 				$routerconfig->directory .= DS.$value;
 				unset($array[$key]);
@@ -73,9 +73,9 @@ class Router
 			$routerconfig->controller = $array[0];
 			unset($array[0]);
 		}
-		else if(!file_exists($routerconfig->directory.DS.$routerconfig->controller.'.php')
+		else if(!file_exists(CTR_DIR.$routerconfig->directory.DS.$routerconfig->controller.'.php')
 			&& $last_dir 
-			&& file_exists($routerconfig->directory.'.php'))
+			&& file_exists(CTR_DIR.$routerconfig->directory.'.php'))
 		{
 			$routerconfig->controller = $last_dir;
 			$routerconfig->directory = substr($routerconfig->directory, 0, strrpos($routerconfig->directory, DS));

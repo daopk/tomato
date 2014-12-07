@@ -14,6 +14,6 @@ class RouterConfig
 	{
 		$this->controller = JsonConfig::$_config['base']['router']['defaut_controller'];
 		$this->action = JsonConfig::$_config['base']['router']['defaut_action'];
-		$this->directory = CTR_DIR;
+		$this->directory = '';
 	}
 }
