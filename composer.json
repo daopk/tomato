@@ -1,13 +1,23 @@
-{
-	"name": "daofresh/tomato",
-	"description": "Easy way to create your website by PHP with software architectural pattern MVC",
-	"keywords": ["tomato", "php", "mvc"],
-	"homepage": "http://www.daofresh.com/tomato/",
-	"license": ["Apache-2.0", "GPL-2.0+"],
-	"authors": [
-		{
-			"name": "Phan Khắc Đạo",
-			"homepage": "http://www.daofresh.com/"
-		}
-	]
-}
+[
+    {
+        "name": "daofresh/tomato",
+        "type": "project",
+        "license": [
+            "Apache-2.0",
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Phan Khắc Đạo",
+                "homepage": "http://www.daofresh.com/"
+            }
+        ],
+        "description": "Easy way to create your website by PHP with software architectural pattern MVC",
+        "homepage": "http://www.daofresh.com/tomato/",
+        "keywords": [
+            "mvc",
+            "php",
+            "tomato"
+        ]
+    }
+]
