@@ -1,6 +1,8 @@
 # TOMATO
 Easy way to create your website by PHP with software architectural pattern MVC
 
+[![Tomato Framework](https://cloud.githubusercontent.com/assets/5574919/5331851/5cec65c8-7e6f-11e4-9c42-d1976fd097d6.png)](https://github.com/daofresh/tomato/releases)
+
 
 ### Quick View
 * Controller
