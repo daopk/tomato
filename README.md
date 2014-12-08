@@ -7,10 +7,12 @@ Easy way to create your website by PHP with software architectural pattern MVC
 ### Quick View
 * Controller
     ```php
-public function index()
-	{
-		//
-	}
+  class Home extends TM_Controller
+  {
+    public function index()
+    {
+        //
+    }
     ```
 
 * Controller to View (with Model)
@@ -18,6 +20,16 @@ public function index()
 public function index()
 	{
 		$model = 'This is model';
+		$this->view('index', $model); 
+	}
+```
+
+* Change template of view (with Model)
+    ```php
+public function index()
+	{
+		$model = 'This is model';
+		$this->template = 'sky';
 		$this->view('index', $model); 
 	}
 ```
