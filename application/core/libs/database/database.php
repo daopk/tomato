@@ -2,7 +2,7 @@
 
 require_once 'NotORM.php';
 
-extract(JsonConfig::$_config['database']);
+extract(JsonConfig::GetConfigByName('database'));
 
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',

@@ -13,3 +13,6 @@ define('PUBLIC_DIR', dirname(APP_DIR).DS.'public');
 
 
 require_once 'libs'.DS.'config'.DS.'config.php';
+
+// Init
+require_once(CORE_DIR.DS.'init.php');

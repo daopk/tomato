@@ -4,50 +4,50 @@ require_once 'urlHelper.php';
 
 class Router
 {
-	private static $_instance;
+	private static $_instance = null;
 
 	public static function GetInstance()
 	{
-		if (!isset(self::$_instance)) {
-			self::$_instance = self::Init();
-
-		}
 		return self::$_instance;
 	}
 
 	public static function Request()
 	{
-		if(isset(self::$_instance))
+		if(self::$_instance)
 		{
-			$instance = (array)(self::$_instance);
-			
-			if(file_exists(CTR_DIR.$instance['directory'].DS.$instance['controller'].'.php'))
+			$instance = self::$_instance;
+
+			if(file_exists(CTR_DIR.$instance->getDirectory().DS.$instance->getController().'.php'))
 			{
-				require_once(CTR_DIR.$instance['directory'].DS.$instance['controller'].'.php');
-				if(class_exists("_".$instance['controller']))
+				require_once(CTR_DIR.$instance->getDirectory().DS.$instance->getController().'.php');
+				if(class_exists("_".$instance->getController()))
 				{
-					$class_name = "_".$instance['controller'];
+					$class_name = "_".$instance->getController();
 					$c = new $class_name;
 				}
-				else $c = new $instance['controller'];
+				else
+				{
+					$c_name = $instance->getController(); 
+					$c = new $c_name;
+				}
 
-				if(method_exists($c, $instance['action'])){
-					call_user_func_array(array($c, $instance['action']), $instance['params']);
+				if(method_exists($c, $instance->getAction())){
+					call_user_func_array(array($c, $instance->getAction()), $instance->getParams());
 				} 
-				elseif(method_exists($c, $instance['action'].'Action')){
-					call_user_func_array(array($c, $instance['action'].'Action'), $instance['params']);
+				elseif(method_exists($c, $instance->getAction().'Action')){
+					call_user_func_array(array($c, $instance->getAction().'Action'), $instance->getParams());
 				}
 				else{
-					self::Error('404', 'Action '.$instance['action'].' not found in controller '.$instance['controller'].'!');
+					self::Error('404', 'Action '.$instance->getAction().' not found in controller '.$instance->getController().'!');
 				}
 			}
 			else 
 			{
-				self::Error('404', 'Controller '.$instance['controller'].' not found!');
+				self::Error('404', 'Controller '.$instance->getController().' not found!');
 			}
 		}
 		else{
-			self::GetInstance();
+			self::$_instance = self::Init();
 			self::Request();
 		}
 	}
@@ -56,13 +56,13 @@ class Router
 	public static function Init()
 	{
 		$routerconfig = new RouterConfig();
-		$routerconfig->params =  UrlHelper::GetParams();
+		$routerconfig->setParams(UrlHelper::GetParams());
 		$array = UrlHelper::ExtractURL();
 		$last_dir = null;
 		foreach ($array as $key => $value) {
-			if(is_dir(CTR_DIR.$routerconfig->directory.DS.$value)){
+			if(is_dir(CTR_DIR.$routerconfig->getDirectory().DS.$value)){
 				$last_dir = $value;
-				$routerconfig->directory .= DS.$value;
+				$routerconfig->addDirectory($value);
 				unset($array[$key]);
 			}
 			else break;	
@@ -70,26 +70,27 @@ class Router
 		$array = array_values($array);
 		if(isset($array[0]))
 		{
-			$routerconfig->controller = $array[0];
+			$routerconfig->setController($array[0]);
 			unset($array[0]);
 		}
-		else if(!file_exists(CTR_DIR.$routerconfig->directory.DS.$routerconfig->controller.'.php')
+		else if(!file_exists(CTR_DIR.$routerconfig->getDirectory().DS.$routerconfig->getController().'.php')
 			&& $last_dir 
-			&& file_exists(CTR_DIR.$routerconfig->directory.'.php'))
+			&& file_exists(CTR_DIR.$routerconfig->getDirectory().'.php'))
 		{
-			$routerconfig->controller = $last_dir;
-			$routerconfig->directory = substr($routerconfig->directory, 0, strrpos($routerconfig->directory, DS));
+			$routerconfig->setController($last_dir);
+			$routerconfig->setDirectory(substr($routerconfig->getDirectory(), 0, 
+				strrpos($routerconfig->getDirectory(), DS)));
 		}
 
 		$array = array_values($array);
 
 		if(isset($array[0]))
 		{
-			$routerconfig->action = $array[0];
+			$routerconfig->setAction($array[0]);
 			unset($array[0]);
 		}
 		foreach ($array as $param) {
-			array_push($routerconfig->params, $param);
+			$routerconfig->addParams($param);
 		}
 		return $routerconfig;
 	}
@@ -98,10 +99,5 @@ class Router
 	{
 		call_user_func_array(array(new Error(), 'error'.$type), [$message]);
 		exit();
-	}
-
-	public static function GetRoute()
-	{
-		return self::$_instance;
 	}
 }
