@@ -26,6 +26,3 @@ require_once(CORE_DIR.DS.'router/router.php');
 // Exceptions
 require_once(LIB_DIR.DS.'exception'.DS.'databaseexception.php');
 require_once(LIB_DIR.DS.'database'.DS.'database.php');
-
-// Libs
-require_once(LIB_DIR.DS.'image'.DS.'image.php');
