@@ -38,12 +38,12 @@ class Router
 					call_user_func_array(array($c, $instance->getAction().'Action'), $instance->getParams());
 				}
 				else{
-					self::Error('404', 'Action '.$instance->getAction().' not found in controller '.$instance->getController().'!');
+					throw new BasicException('Action '.$instance->getAction().' not found in controller '.$instance->getController().'!', 1);
 				}
 			}
 			else 
 			{
-				self::Error('404', 'Controller '.$instance->getController().' not found!');
+				throw new BasicException('Controller '.$instance->getController().' not found!', 1);				  
 			}
 		}
 		else{
@@ -93,11 +93,5 @@ class Router
 			$routerconfig->addParams($param);
 		}
 		return $routerconfig;
-	}
-
-	public static function Error($type, $message = '')
-	{
-		call_user_func_array(array(new Error(), 'error'.$type), [$message]);
-		exit();
 	}
 }

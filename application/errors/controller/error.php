@@ -9,4 +9,9 @@ class Error extends TM_Controller
 	{
 		$this->view("404", $message);
 	}
+
+	public function errorDatabase($message)
+	{
+		$this->view("database", $message);
+	}
 }
