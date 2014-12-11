@@ -21,7 +21,9 @@ class JsonConfig
 		$result = self::getConfig();
 		foreach ($params as $value) {
 			if($value != '')
-				$result = $result[$value];
+				if(isset($result[$value]))
+					$result = $result[$value];
+				else return null;
 		}
 		return $result;
 	}
