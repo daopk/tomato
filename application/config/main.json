@@ -1,17 +1,17 @@
 {
-	"base_url" : "http://localhost/cachua/",
+	"base_url" : "http://localhost/tomato/",
 	"router" : {
 		"default_controller" : "home",
 		"default_action" : "index"
 	},
-	"database_another" : {
+	"database" : {
 		"driver" : "mysql",
 		"host" : "localhost",
 		"user" : "root",
 		"pass" : "12345678",
 		"db_name" : "tomato"
 	},
-	"database" : {
+	"database_another" : {
 		"driver" : "sqlite",
 		"file" : "/db/tomato.sqlite3"
 	},
