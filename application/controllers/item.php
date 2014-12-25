@@ -5,11 +5,11 @@
 */
 class Item extends TM_Controller
 {
-	public function indexAction(){
-		global $db;
-		
-		$items = $db->item()->select('name');
-
-		$this->view('index', $items);
+	public function index()
+	{
+		if(isset($this->params->sky))
+			$this->template = 'sky';
+		$model = $this->db->item()->select('*');
+		$this->view('index', $model);
 	}
 }

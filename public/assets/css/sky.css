@@ -1,0 +1,121 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+a, a:hover, a:active, a:focus{text-decoration: none;}
+body{
+	background-color: #2F1700;
+	/*background-image: url(../../images/clouds-pattern.png);*/
+	background-size: 300px;
+	color: white;
+}
+.main-header{
+	position: absolute;
+	height: 100%;
+	float: left;
+	width: 210px;
+	background-color: rgba(20,10,10,0.7);
+}
+
+.logo{
+	border-radius: 50%;
+	border: 5px dotted #F77909;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	margin: 20px auto;
+	background-color: rgba(100,200,100,0.3);
+	transition: all 2s;
+	cursor: pointer;
+}
+.logo:hover{
+	background-color: rgba(10,25,10,0.7);
+	-ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+    transform: rotate(360deg);
+}
+.logo h1{
+	font-size: 24px;
+	color: white;
+	text-shadow: 0 0 2px red;
+	margin-top: 20px;
+	line-height: 40px;
+}
+
+.main-menu{
+	text-align: center;
+}
+
+.main-menu a{
+	display: block;
+	font-size: 20px;
+	line-height: 50px;
+	background-size: 200% 100%;
+    background-position: 90% 0px;
+    -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    -moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    background-image: -webkit-linear-gradient(left, #2F1700 0%, #2F1700 50%, rgba(20,0,20,0.5) 0%);
+    background-image: -moz-linear-gradient(left, #2F1700 0%, #2F1700 50%, rgba(20,0,20,0.5) 0%);
+    margin-bottom: 2px;
+    color: white;
+}
+.main-menu a:hover{
+	-webkit-transition: 0.3s cubic-bezier(0.175, 0.285, 0.32,1.0) all;
+    -moz-transition: 0.3s cubic-bezier(0.175, 0.285, 0.32,1.0) all;
+    background-position: 0% 0%;
+}
+
+.wrapper{
+	padding-left: 220px;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.main-content{
+	padding: 30px 0;
+}
+
+.main-footer{
+	padding-top: 10px;
+	border-top: 2px solid #D88027;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center
+}
+
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em
+}
+
+.pure-table td:first-child,.pure-table th:first-child {
+    border-left-width: 0
+}
+
+.pure-table thead {
+    background: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom
+}
+
+.pure-table td {
+    background-color: transparent
+}

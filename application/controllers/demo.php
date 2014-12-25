@@ -1,9 +1,9 @@
 <?php
 
 /**
-* 
+* 	
 */
-class Home extends TM_Controller
+class Demo extends TM_Controller
 {
 	public function index()
 	{

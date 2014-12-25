@@ -1,24 +1,18 @@
-<div class="wrapper">
-<h4>List items: </h4>
-<?php
-	foreach (View::$model as $key => $value) {
-		echo $key.': '.$value['name'].'<br />';
-	}
-?>
-
-
-<hr>
-<pre>
-		class Item extends Controller
-		{
-			public function index(){
-				global $db;
-				
-				$items = $db->item()->select('name');
-
-				$this->view('index', $items);
-			}
-		}
-</pre>
-
+<div class="table-responsive">
+	<table class="table table-hover pure-table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($model as $key => $item): ?>
+			<tr>
+				<td> <?= $item['name'] ?></td>
+				<td> <?= $item['value'] ?></td>
+			</tr>
+		<?php endforeach ?>
+		</tbody>
+	</table>
 </div>
