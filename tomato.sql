@@ -29,8 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(300) CHARACTER SET utf8 NOT NULL,
-  `date_create` datetime NOT NULL,
-  `vl` int(11) DEFAULT NULL,
+  `value` varchar(300) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -38,9 +37,9 @@ CREATE TABLE IF NOT EXISTS `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id`, `name`, `date_create`, `vl`) VALUES
-(1, 'Foo', '2014-11-12 00:00:00', 3),
-(2, 'Pingo', '2014-11-10 00:00:00', 5);
+INSERT INTO `item` (`id`, `name`, `value`) VALUES
+(1, 'daofresh', '1112065'),
+(2, 'minhduc', '1112076');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
