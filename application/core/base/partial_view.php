@@ -3,7 +3,7 @@
 /**
 * 
 */
-class TM_Partial_View
+class TM_Partial_View extends TM_View
 {
 	var $path, $model;
 
