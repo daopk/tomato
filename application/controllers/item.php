@@ -9,7 +9,14 @@ class Item extends TM_Controller
 	{
 		if(isset($this->params->sky))
 			$this->template = 'sky';
-		$model = $this->db->item()->select('*');
+		$item = $this->load->model('item');
+		$model = $item->getList();
 		$this->view('index', $model);
+	}
+
+	public function detail($name)
+	{
+		$dao = $this->load->model('item');
+		echo $dao->getValue($name);
 	}
 }
