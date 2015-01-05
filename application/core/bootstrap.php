@@ -11,9 +11,9 @@ class _bootstrapTomato
 	 */
 	function __construct()
 	{
-		$this->load_base_class();
 		$this->load_libraries();
 		$this->load_helpers();
+		$this->load_base_class();
 	}
 
 	/**
@@ -38,7 +38,7 @@ class _bootstrapTomato
 	 */
 	private function load_helpers()
 	{
-		//require_once CORE_DIR.DS.'helpers'.DS.'json_helper.php';
+		require_once CORE_DIR.DS.'helpers'.DS.'load_helper.php';
 	}
 
 	/**
@@ -50,5 +50,3 @@ class _bootstrapTomato
 		require_once CORE_DIR.DS.'libraries'.DS.'database'.DS.'NotORM.php';
 	}
 }
-
-new _bootstrapTomato();

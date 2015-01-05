@@ -23,6 +23,8 @@ define('PUBLIC_DIR', BASE_DIR.DS.'public');
 //
 define('CORE_DIR', APP_DIR.DS.'core');
 
+
+require_once(APP_DIR.DS.'core'.DS.'bootstrap.php');
 /**
  * Main class
  */
@@ -38,7 +40,7 @@ class _mainTomato
 
     private function get_bootstrap()
     {
-    	require_once(APP_DIR.DS.'core'.DS.'bootstrap.php');
+    	new _bootstrapTomato();
     }
 
     public function Init()
