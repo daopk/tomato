@@ -155,7 +155,7 @@ class TM_Router
 			
 			$c_name = '_'.$this->controller;
 			$controller = new TM_Error();
-			call_user_func_array(array($controller, 'Error404'), array("messas fdfge"));
+			call_user_func_array(array($controller, 'Error404'), array("Not found Controller " . $this->controller));
 			/*
 			
 			/*
