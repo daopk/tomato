@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Debug Bar: panel "error" template.
+ *
+ * This file is part of the Tomato Debug (https://github.com/daofresh/tomato)
+ */
+
+namespace TmDebug;
+
+use TmDebug;
+?>
+<h1>Errors</h1>
+
+<div class="tmdebug-inner">
+<table>
+<?php foreach ($data as $item => $count): list($file, $line, $message) = explode('|', $item, 3) ?>
+<tr>
+	<td class="tmdebug-right"><?php echo $count ? "$count\xC3\x97" : '' ?></td>
+	<td><pre><?php echo htmlspecialchars($message, ENT_IGNORE), ' in ', Helpers::editorLink($file, $line) ?></pre></td>
+</tr>
+<?php endforeach ?>
+</table>
+</div>

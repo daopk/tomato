@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Debug Bar: panel "dumps" template.
+ *
+ * This file is part of the Tomato Debug (https://github.com/daofresh/tomato)
+ */
+
+namespace TmDebug;
+
+use TmDebug;
+
+?>
+<style class="tmdebug-debug">
+
+	#tmdebug-debug .tmdebug-DumpPanel h2 {
+		font: 11pt/1.5 sans-serif;
+		margin: 0;
+		padding: 2px 8px;
+		background: #3484d2;
+		color: white;
+	}
+
+</style>
+
+
+<h1>Dumped variables</h1>
+
+<div class="tmdebug-inner tmdebug-DumpPanel">
+<?php foreach ($data as $item): ?>
+	<?php if ($item['title']):?>
+	<h2><?php echo htmlspecialchars($item['title']) ?></h2>
+	<?php endif ?>
+
+	<?php echo $item['dump'] ?>
+<?php endforeach ?>
+</div>
