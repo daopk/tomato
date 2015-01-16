@@ -28,3 +28,4 @@ require(TOMATO_DIR.'system'.DS.'core'.DS.'init.php');
  
 // 4. Run application
 TomatoApp::run();
+//dump(get_included_files());
