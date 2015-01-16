@@ -5,7 +5,14 @@ RouterMap::AddRoute('blog/{postName}', array(
 	'action' => 'view'
 ));
 
+RouterMap::AddRoute('{directory}/{controller}/{action}', array(
+	'controller' => 'home',
+	'action' => 'index'
+));
+
+/*
 RouterMap::AddRoute('{controller}/{action}', array(
 	'controller' => 'home',
 	'action' => 'index'
 ));
+*/
