@@ -10,7 +10,7 @@ class Setting_TM_Helper
 
 	private function __construct(){}
 
-	public function LoadConfig($value='')
+	public function LoadConfig($value)
 	{
 		if(!empty($value) && file_exists(TOMATO_DIR_APP.'config'.DS.$value.'.php'))
 			return include TOMATO_DIR_APP.'config'.DS.$value.'.php';
