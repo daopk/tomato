@@ -28,13 +28,8 @@ if(defined('TOMATO_DEBUG') && TOMATO_DEBUG)
 {
 	require(TOMATO_DIR_SYSTEM_LIBRARY.'tmdebug'.DS.'tmdebug.php');
 	TmDebug\Debugger::enable(TmDebug\Debugger::DEVELOPMENT);
+	TmDebug\Debugger::$email = 'daofresh@gmail.com';
 } else error_reporting(0);
-
-/*if(is_file(TOMATO_DIR_APP.'config'.DS.'database.php'))
-{
-	$db_config = include TOMATO_DIR_APP.'config'.DS.'database.php';
-	var_dump($db_config);
-}*/
 
 // 3. Register auto load
 spl_autoload_register(function($class) {
@@ -45,7 +40,7 @@ spl_autoload_register(function($class) {
 		$path = TOMATO_DIR_SYSTEM_CORE.DS.$name.DS.$name.'.php';
 	} else{
 		$name = strtolower($class);
-		$path = TOMATO_DIR_SYSTEM_LIBRARY.DS.$name.DS.$name.'.php';
+		$path = TOMATO_DIR_SYSTEM_LIBRARY.$name.DS.$name.'.php';
 	}
 	if(file_exists($path)){require_once($path);}
 });
