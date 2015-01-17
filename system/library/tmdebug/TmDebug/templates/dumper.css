@@ -1,0 +1,70 @@
+/**
+ * This file is part of the Tomato Debug (https://github.com/daofresh/tomato)
+ */
+
+/* toggle */
+.tmdebug-collapsed {
+	display: none;
+}
+
+.tmdebug-toggle.tmdebug-collapsed {
+	display: inline;
+}
+
+.tmdebug-toggle {
+	cursor: pointer;
+}
+
+.tmdebug-toggle:after {
+	content: " ▼";
+	opacity: .4;
+}
+
+.tmdebug-toggle.tmdebug-collapsed:after {
+	content: " ►";
+}
+
+
+/* dump */
+pre.tmdebug-dump {
+	text-align: left;
+	color: #444;
+	background: white;
+}
+
+pre.tmdebug-dump div {
+	padding-left: 3ex;
+}
+
+pre.tmdebug-dump div div {
+	border-left: 1px solid rgba(0, 0, 0, .1);
+	margin-left: .5ex;
+}
+
+.tmdebug-dump-array, .tmdebug-dump-object {
+	color: #C22;
+}
+
+.tmdebug-dump-string {
+	color: #35D;
+}
+
+.tmdebug-dump-number {
+	color: #090;
+}
+
+.tmdebug-dump-null, .tmdebug-dump-bool {
+	color: #850;
+}
+
+.tmdebug-dump-visibility, .tmdebug-dump-hash {
+	font-size: 85%; color: #999;
+}
+
+.tmdebug-dump-indent {
+	display: none;
+}
+
+span[data-tmdebug-href] {
+	border-bottom: 1px dotted rgba(0, 0, 0, .2);
+}

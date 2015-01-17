@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * Debug Bar screen template.
+ *
+ * It uses Silk Icons created by Mark James and released under Creative Commons Attribution 2.5 License.
+ *
+ * This file is part of the Tomato Debug (https://github.com/daofresh/tomato)
+ *
+ * @param  array $panels
+ * @param  array $info
+ * @return void
+ */
+
+namespace TmDebug;
+
+use TmDebug;
+
+?>
+
+
+
+
+<!-- TmDebug Debug Bar -->
+
+<?php ob_start() ?>
+&nbsp;
+
+<style id="tmdebug-debug-style" class="tmdebug-debug">
+<?php readfile(__DIR__ . '/bar.css') ?>
+<?php readfile(__DIR__ . '/dumper.css') ?>
+</style>
+
+<!--[if lt IE 8]><style class="tmdebug-debug">
+	#tmdebug-debug-bar img { display: none }
+	#tmdebug-debug-bar li { border-left: 1px solid #DCD7C8; padding: 0 3px }
+	#tmdebug-debug-logo span { background: #edeae0; display: inline }
+</style><![endif]-->
+
+
+<script id="tmdebug-debug-script">
+/* <![CDATA[ */
+<?php readfile(__DIR__ . '/tmdebugQuery.js') ?>
+<?php readfile(__DIR__ . '/bar.js') ?>
+<?php readfile(__DIR__ . '/dumper.js') ?>
+/* ]]> */
+</script>
+
+
+<?php foreach ($panels as $panel): if (!$panel['panel']) continue; ?>
+	<div class="tmdebug-panel" id="tmdebug-debug-panel-<?php echo $panel['id'] ?>">
+		<?php echo $panel['panel'] ?>
+		<div class="tmdebug-icons">
+			<a href="#" title="open in window">&curren;</a>
+			<a href="#" rel="close" title="close window">&times;</a>
+		</div>
+	</div>
+<?php endforeach ?>
+
+<div id="tmdebug-debug-bar">
+	<ul>
+		<li id="tmdebug-debug-logo" title="<?php echo htmlSpecialChars(implode(" |\n", $info))?>">&nbsp;<span>TmDebug</span></li>
+		<?php foreach ($panels as $panel): if (!$panel['tab']) continue; ?>
+		<?php if (!empty($panel['previous'])) echo '</ul><ul class="tmdebug-previous">'; ?>
+		<li><?php if ($panel['panel']): ?><a href="#" rel="<?php echo $panel['id'] ?>"><?php echo trim($panel['tab']) ?></a><?php else: echo '<span>', trim($panel['tab']), '</span>'; endif ?></li>
+		<?php endforeach ?>
+		<li><a href="#" rel="close" title="close debug bar">&times;</a></li>
+	</ul>
+</div>
+<?php $output = ob_get_clean(); ?>
+
+
+<script>
+(function(onloadOrig) {
+	window.onload = function() {
+		if (typeof onloadOrig === 'function') onloadOrig();
+		var debug = document.body.appendChild(document.createElement('div'));
+		debug.id = 'tmdebug-debug';
+		debug.innerHTML = <?php echo json_encode(Helpers::fixEncoding($output)) ?>;
+		for (var i = 0, scripts = debug.getElementsByTagName('script'); i < scripts.length; i++) eval(scripts[i].innerHTML);
+		TmDebug.Dumper.init();
+		TmDebug.Debug.init();
+		debug.style.display = 'block';
+	};
+})(window.onload);
+</script>
+
+<!-- /TmDebug Debug Bar -->
