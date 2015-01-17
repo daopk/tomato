@@ -21,11 +21,12 @@ class TM_Controller
 		$this->route = $route;
 	}
 
-	public function View($viewName, $model = null)
+	public function View($viewName, &$model = null)
 	{
 		if(file_exists($this->route['directory'].$this->route['controller'].'.php'))
 		{
 			$view = new TM_View($this->route, $model);
+			$view->Render();
 		}
 	}
 }
