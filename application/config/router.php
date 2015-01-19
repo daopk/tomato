@@ -2,12 +2,14 @@
 
 RouterMap::AddRoute('blog/{postName}', array(
 	'controller' => 'blog',
-	'action' => 'view'
+	'action' => 'view',
+	'template' => 'default'
 ));
 
 RouterMap::AddRoute('{directory}/{controller}/{action}', array(
 	'controller' => 'home',
-	'action' => 'index'
+	'action' => 'index',
+	'template' => 'default'
 ));
 
 /*
