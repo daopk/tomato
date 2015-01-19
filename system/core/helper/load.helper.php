@@ -6,6 +6,8 @@
 class Load_TM_Helper
 {
 	protected static $models = array();
+	protected static $modules = array();
+	
 	public function model($modelName)
 	{
 		if(!array_key_exists($modelName, self::$models))
@@ -20,5 +22,10 @@ class Load_TM_Helper
 			} else throw new Exception("Cant load model $modelName", 1);
 		}
 		return self::$models[$modelName];
+	}
+
+	public function module($moduleName)
+	{
+		echo "Load module $moduleName";
 	}
 }
