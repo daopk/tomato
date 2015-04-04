@@ -1,13 +1,13 @@
 <?php
 
 /**
-* Home Controller
+* Home
 */
 class Home extends TM_Controller
 {
-	public function index()
+	
+	function index()
 	{
-		$user = 'Phan Khắc Đạo';
-		$this->view('index', $user);
+		$this->view('index');
 	}
 }

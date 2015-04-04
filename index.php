@@ -1,11 +1,5 @@
 <?php
 
-// Todo: 
-// 1. Check php version
-// 2. Define necessary constants
-// 3. Require init file
-// 4. Run application
-
 // 1. Check php version
 if (version_compare(phpversion(), '5.4', '<') === true)
 {
@@ -13,6 +7,9 @@ if (version_compare(phpversion(), '5.4', '<') === true)
 }
 
 // 2. Define necessary constants
+// date_default_timezone_set('Asia/Saigon'); // Using this line if you can't change php.ini file
+// Start time
+define('START_TIME', array_sum(explode(' ', microtime())));
 
 // Directory Seperator
 define('DS', DIRECTORY_SEPARATOR);
@@ -20,12 +17,11 @@ define('DS', DIRECTORY_SEPARATOR);
 // Root Directory
 define('TOMATO_DIR', dirname(__FILE__).DS);
 
-// Start Time
-define('START_TIME', array_sum(explode(' ', microtime())));
+// 3. Change error log folder for testing
+ini_set('error_log', TOMATO_DIR.'log.txt');
 
-// 3. Require init file
-require(TOMATO_DIR.'system'.DS.'core'.DS.'init.php');
- 
-// 4. Run application
-TomatoApp::run();
-//dump(get_included_files());
+// 4. Begin Session
+session_start();
+
+// 5. Require init file
+require(TOMATO_DIR.'system'.DS.'init.php');

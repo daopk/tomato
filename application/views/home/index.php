@@ -1,1 +1,1 @@
-<?= $model ?>
+Welcome to Tomato PHP!
