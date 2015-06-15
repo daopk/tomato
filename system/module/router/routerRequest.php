@@ -15,12 +15,12 @@ class RouterRequest_TM_Module
 			$this->url = trim($_SERVER['REDIRECT_URL'], '/');
 		}
 		
-		$begin_path = strpos(rtrim(BASE_URL, '/'), '/', 8);
+		$begin_path = strpos(rtrim(BASE_URL, '/'), '/', 8); // Remove http:// , https://
 		if($begin_path !== false)
 		{
 			$sub_path = rtrim(substr(BASE_URL, $begin_path), '/');
-
-			if(strpos($_SERVER['REDIRECT_URL'], $sub_path) === 0)
+			
+			if(isset($_SERVER['REDIRECT_URL']) && strpos($_SERVER['REDIRECT_URL'], $sub_path) === 0)
 				$this->url = substr($_SERVER['REDIRECT_URL'], strlen($sub_path));
 		}
 
