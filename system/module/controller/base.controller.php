@@ -8,7 +8,7 @@ class TM_Controller
 	public $db, $load;
 	private $route;
 
-	public $page, $pageNum, $pageTotal;
+	public $page, $limit, $pageTotal;
 
 	function __construct()
 	{
@@ -62,13 +62,13 @@ class TM_Controller
 		$view->render(true);
 	}
 
-	function checkPage($pageNum = 10)
+	function checkPage($limit = 10)
 	{
 		$this->page = 1; 
-		$this->pageNum = $pageNum;
+		$this->limit = $limit;
 		if(isset($_GET['page']) && intval($_GET['page']) > 0)
 			$this->page = intval($_GET['page']);
-		if(isset($_GET['pageNum']) && intval($_GET['pageNum']) > 0)
-			$this->pageNum = intval($_GET['pageNum']);
+		if(isset($_GET['limit']) && intval($_GET['limit']) > 0)
+			$this->limit = intval($_GET['limit']);
 	}
 }
