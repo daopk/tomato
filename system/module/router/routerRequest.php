@@ -11,8 +11,19 @@ class RouterRequest_TM_Module
 
 	function __construct($rules)
 	{
-		if(isset($_SERVER['REDIRECT_URL']))
+		if (isset($_SERVER['REDIRECT_URL'])) {
 			$this->url = trim($_SERVER['REDIRECT_URL'], '/');
+		}
+		
+		$begin_path = strpos(rtrim(BASE_URL, '/'), '/', 8);
+		if($begin_path !== false)
+		{
+			$sub_path = rtrim(substr(BASE_URL, $begin_path), '/');
+
+			if(strpos($_SERVER['REDIRECT_URL'], $sub_path) === 0)
+				$this->url = substr($_SERVER['REDIRECT_URL'], strlen($sub_path));
+		}
+
 		$this->rule = $this->GetValidRule($rules, $this->url);
 	}
 
