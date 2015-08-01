@@ -1,1 +1,1 @@
-Welcome to Tomato PHP!
+<h3 class="center">Welcome to Tomato PHP!</h3>
