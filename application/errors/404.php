@@ -38,11 +38,11 @@
         <div class="404">
             <pre>
                 <code>
-                    <span class="comment">// Error controller</span>
-                    <span class="blue">class</span> ErrorBase <span class="blue">extends</span> <span class="orange">TM_Error</span>
-                    {
-                    <span class="blue">function</span> show()
-                    {
+            <span class="comment">// Error controller</span>
+            <span class="blue">class</span> ErrorBase <span class="blue">extends</span> <span class="orange">TM_Error</span>
+            {
+                <span class="blue">function</span> show()
+                {
                     <span class="blue">echo</span> <span class="orange">"<?= $message ?>"</span>;
                 }
             }
