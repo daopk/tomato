@@ -4,8 +4,8 @@ return array(
 	'driver'	=> 'mysql',
 	'host'		=> 'localhost',
 	'user'		=> 'root',
-	'pass'		=> '12345678',
-	'db_name'	=> 'intervoice_new'
+	'pass'		=> '',
+	'db_name'	=> 'tomato'
 );
 
 // or if you want using another database driver
