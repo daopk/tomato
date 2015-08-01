@@ -5,5 +5,6 @@ $this->AddStyle([
 ]);
 
 $this->AddScript([
+    'jquery' => ['jquery.js'],
     'materialize' => ['materialize.min.js']
 ]);
