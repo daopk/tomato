@@ -1,11 +1,11 @@
 <?php
 
 return array(
-	'driver'	=> 'mysql',
-	'host'		=> 'localhost',
-	'user'		=> 'root',
-	'pass'		=> '',
-	'db_name'	=> 'tomato'
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'user'      => 'root',
+    'pass'      => '',
+    'db_name'   => 'tomato'
 );
 
 // or if you want using another database driver
@@ -13,7 +13,7 @@ return array(
 
 /*
 return array(
-	'driver'	=> 'sqlite',
-	'file'		=> 'somefile.sqlite3'
+    'driver'    => 'sqlite',
+    'file'      => 'somefile.sqlite3'
 );
 */
