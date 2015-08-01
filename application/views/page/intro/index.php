@@ -1,0 +1,1 @@
+<h3 class="center">This page inside <i>page</i> directory</h3>

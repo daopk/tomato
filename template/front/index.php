@@ -9,12 +9,12 @@
 <body>
     <nav class="orange darken-4" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Tomato</a>
+            <a id="logo-container" href="/tomato" class="brand-logo">Tomato</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Navbar Link</a></li>
+                <li><a href="/tomato/page/intro">Intro page</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
+                <li><a href="/tomato/page/intro">Intro page</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
