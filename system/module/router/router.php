@@ -6,7 +6,7 @@ require 'routerRequest.php';
 */
 class Router_TM_Module
 {
-    protected static $rules = [];
+    protected static $rules = array();
 
     function __construct()
     {
@@ -34,7 +34,7 @@ class Router_TM_Module
 
     private function SortRules()
     {
-        $priorities = [];
+        $priorities = array();
         foreach (self::$rules as $index => &$rule) {
             $rule['prefix'] = $this->GetPrefixMap($rule['map']);
             if(!empty($rule['prefix']) && empty($rule['map']))
@@ -63,6 +63,6 @@ class Router_TM_Module
 
     public static function AddRoute($rule_map, array $rule_default)
     {
-        self::$rules[] = ['map' => $rule_map, 'default' => $rule_default];
+        self::$rules[] = array('map' => $rule_map, 'default' => $rule_default);
     }
 }

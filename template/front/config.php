@@ -1,11 +1,11 @@
 <?php
 
-$this->AddStyle([
-    'materialize' => ['materialize.min.css']
-]);
+$this->AddStyle(array(
+    'materialize' => array('materialize.min.css')
+));
 
-$this->AddScript([
-    'jquery' => ['jquery.js'],
-    'materialize' => ['materialize.min.js'],
-    'app' => ['app.js']
-]);
+$this->AddScript(array(
+    'jquery' => array('jquery.js'),
+    'materialize' => array('materialize.min.js'),
+    'app' => array('app.js'),
+));

@@ -30,7 +30,7 @@ class TM_Controller
         header('Content-type: application/json; charset=utf-8');
         if(empty($_POST))
         {
-            echo json_encode(['status'=>false, 'message' => 'POST Only']);
+            echo json_encode(array('status'=>false, 'message' => 'POST Only'));
             die();
         }
     }

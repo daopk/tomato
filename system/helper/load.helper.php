@@ -5,9 +5,9 @@
 */
 class Load_TM_Helper
 {
-    protected static $modules = [];
-    protected static $libraries = [];
-    protected static $models = [];
+    protected static $modules = array();
+    protected static $libraries = array();
+    protected static $models = array();
 
     public static function module($module_name)
     {

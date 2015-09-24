@@ -5,7 +5,7 @@
 */
 class Tomato_TM_Module
 {
-    protected $config = [];
+    protected $config = array();
     protected $router = NULL;
 
     function __construct()

@@ -63,7 +63,7 @@ class RouterRequest_TM_Module
         $directory = $this->CheckDirectory($variables, $values,
             isset($rule['default']['directory']) ? $rule['default']['directory'] : '');
 
-        $result = ['directory' => $directory, 'params' => []];
+        $result = array('directory' => $directory, 'params' => array());
 
         foreach ($values as $key => $value) {
             if(isset($variables[$key]))
@@ -106,7 +106,7 @@ class RouterRequest_TM_Module
     private function ExtractMapToVariables($map)
     {
         if(empty($map))
-            return [];
+            return array();
         $variables = explode('}', $map);
         foreach ($variables as $key => $variable) {
             if(empty($variable))

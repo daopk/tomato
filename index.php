@@ -3,7 +3,7 @@
 // 1. Check php version
 if (version_compare(phpversion(), '5.4', '<') === true)
 {
-    exit('Tomato requires PHP 5.4 or newer.');
+   // exit('Tomato requires PHP 5.4 or newer.');
 }
 
 // 2. Define necessary constants

@@ -5,7 +5,7 @@
 */
 class Database_TM_Module
 {
-    private $config = [];
+    private $config = array();
     private $db;
 
     function __construct()

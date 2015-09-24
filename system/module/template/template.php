@@ -10,8 +10,8 @@ class Template_TM_Module
     protected $route;
     protected $db;
 
-    private $scripts = [];
-    private $styles = [];
+    private $scripts = array();
+    private $styles = array();
 
     private static $rendered = false;
 
