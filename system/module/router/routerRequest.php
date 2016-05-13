@@ -11,8 +11,8 @@ class RouterRequest_TM_Module
 
     function __construct($rules)
     {
-        if (isset($_SERVER['REDIRECT_URL'])) {
-            $this->url = trim($_SERVER['REDIRECT_URL'], '/');
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $this->url = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), '/');
         }
 
         $begin_path = strpos(rtrim(BASE_URL, '/'), '/', 8); // Remove http:// , https://
